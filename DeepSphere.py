@@ -5,11 +5,7 @@ DeepSphere
 """
 
 import tensorflow as tf
-
-
-
 class DeepSphere():
-
 	def weights(self, shape):
 		return tf.get_variable(name="weight",shape=shape,dtype=tf.float32,initializer=tf.random_normal_initializer())
 
