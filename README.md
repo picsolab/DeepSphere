@@ -13,4 +13,6 @@ _pickle, tensorflow, numpy, scikit-learn
 
 # Usage
 
-Two synthetic datasets -- "train.pkl" and "test.pkl" -- are provided. They are dictionaries which contain three components {'data':data, 'label':label, 'diff':diff}, where 'data' is a 4-dimensional tensor of shape (batch_size, time_steps, num_nodes, num_nodes), 'label' is a list of ground-truth case-level labels, and 'diff' stores all nested anomalies (including both coordinates and anomaly values).
+Two synthetic datasets -- "train.pkl" and "test.pkl" -- are provided as implementation examples. They are dictionaries which contain three components {'data':data, 'label':label, 'diff':diff}, where 'data' is a 4-dimensional tensor of shape (batch_size, time_steps, num_nodes, num_nodes), 'label' is a list of ground-truth case-level labels, and 'diff' stores all nested anomalies (including both coordinates and anomaly values).
+
+DeepSphere.py contains DeepSphere class; main.py is for training and testing.
