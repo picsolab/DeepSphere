@@ -5,7 +5,11 @@ DeepSphere
 """
 
 import tensorflow as tf
+
+
+
 class DeepSphere():
+
 	def weights(self, shape):
 		return tf.get_variable(name="weight",shape=shape,dtype=tf.float32,initializer=tf.random_normal_initializer())
 
@@ -46,8 +50,11 @@ class DeepSphere():
 				(z - tf.reshape(tf.tile(self.centroid,[self.batch_size]),[self.batch_size, config.num_hidden])))
 			distanceE2 = tf.square(self.distance)
 			residue = tf.nn.relu(distanceE2 - tf.square(self.radius))
-			penalty = tf.nn.relu(tf.square(self.radius) - distanceE2)
-			penalty = tf.nn.softmax(penalty)
+			penalty = tf.nn.relu(tf.exp(tf.square(self.radius) - distanceE2) - 1.0) + 1e-28
+			penalty = tf.map_fn(lambda x: tf.divide(x,tf.reduce_sum(penalty)),penalty)
+			self.penalty = penalty
+
+
 
 			""" case-level label """
 			self.label = (self.radius * (1.0 + config.tolerance) >= self.distance)
