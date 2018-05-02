@@ -82,14 +82,14 @@ if __name__=="__main__":
 		for e in range(config.num_epochs):
 			
 			""" train """
-			_,train_loss,train_label_pred,r,d = sess.run(
-				[train_op, model.loss, model.label, model.radius, model.distance],feed_dict={model.input:train_data})
+			_,train_loss,train_label_pred,r,d,penalty = sess.run(
+				[train_op, model.loss, model.label, model.radius, model.distance, model.penalty],feed_dict={model.input:train_data})
 			train_acc = accuracy_score(train_label,train_label_pred)
 			end = time.time()
 			if e % 10 == 0:
 				print("epoch {}/{},loss = {},train_acc = {},time = {}".format(
 					e,config.num_epochs,train_loss,train_acc,end-start))
-				print("r = {},d = {}".format(r,d))
+				print(np.c_[np.array(r-d),np.array(penalty)]) # print r-d and penalty side by side
 			start = time.time()
 
 		""" test """
@@ -100,5 +100,4 @@ if __name__=="__main__":
 		rmse_error = rmse(test_diff,test_diff_pred)
 
 		print("test_acc = {}, rmse = {}".format(test_acc,rmse_error))
-
 		_pickle.dump(test_diff_pred,open("data/test_diff_pred.pkl","wb"))
