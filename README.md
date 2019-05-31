@@ -20,4 +20,4 @@ DeepSphere.py contains DeepSphere class; main.py is for training and testing.
 # Citation
 If you make use of this code, please kindly cite our paper:
 
-Teng, X., Yan, M., Ertugrul, A., Lin, Y.-R. (2018). Deep into Hypersphere: Robust and Unsupervised Anomaly Discovery in Dynamic Networks. In Proceedings of the 27th International Joint Conference on Artificial Intelligence (IJCAI 2018)
+Teng, X., Yan, M., Ertugrul, A., Lin, Y.-R. (2018). Deep into Hypersphere: Robust and Unsupervised Anomaly Discovery in Dynamic Networks. In Proceedings of the 27th International Joint Conference on Artificial Intelligence (IJCAI 2018). https://www.ijcai.org/proceedings/2018/0378.pdf
