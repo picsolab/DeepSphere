@@ -16,3 +16,8 @@ _pickle, tensorflow, numpy, scikit-learn
 Two synthetic datasets -- "train.pkl" and "test.pkl" -- are provided as implementation examples. They are dictionaries which contain three components {'data':data, 'label':label, 'diff':diff}, where 'data' is a 4-dimensional tensor of shape (batch_size, time_steps, num_nodes, num_nodes), 'label' is a list of ground-truth case-level labels, and 'diff' stores all nested anomalies (including both coordinates and anomaly values).
 
 DeepSphere.py contains DeepSphere class; main.py is for training and testing.
+
+# Citation
+If you make use of this code, please kindly cite our paper:
+
+Teng, X., Yan, M., Ertugrul, A., Lin, Y.-R. (2018). Deep into Hypersphere: Robust and Unsupervised Anomaly Discovery in Dynamic Networks. In Proceedings of the 27th International Joint Conference on Artificial Intelligence (IJCAI 2018)
